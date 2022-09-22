@@ -1,12 +1,8 @@
 import React from 'react'
 import {
     AppBar as MuiAppBar,
-    IconButton,
     Typography
 } from '@mui/material'
-import {
-    Menu as MenuIcon
-} from '@mui/icons-material'
 
 type AppBarProps = {
     children?: React.ReactNode
@@ -14,24 +10,17 @@ type AppBarProps = {
 
 const AppBar = (params: AppBarProps) => {
   return (
-      <MuiAppBar
-          position="static"
-          about='Customized AppBar for shoppyLite'
-          elevation={1}
-      >
-      <IconButton
-        size="large"
-        edge="start"
-        color='inherit'
-        aria-label="menu"
-        sx={{ mr: 2 }}
-        >
-          <MenuIcon />
-        </IconButton>
-        <Typography variant='h6' color='inherit'>
-          shoppyLite
-        </Typography>
-      </MuiAppBar>
+    <MuiAppBar
+      position="static"
+      sx={{
+        backgroundColor: '#fff',
+        color: '#000',
+        boxShadow: 'none',
+        borderBottom: '1px solid #e0e0e0'
+      }}
+    >
+      {params.children ?? (<Typography variant="h6" component="div" sx={{ flexGrow: 1, color: '#f00' }}>No component</Typography>)}
+    </MuiAppBar>
   )
 }
 
