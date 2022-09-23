@@ -1,3 +1,4 @@
+import Category from "../models/Category";
 import Order from "../models/Order";
 import Product from "../models/Product";
 
@@ -60,3 +61,27 @@ export const order: Order = {
 }
 
 export const product = products[0]
+
+export const categories: Category[] = [
+    {
+        id: '1',
+        name: 'Kitchen',
+        description: 'Be cool like a fridge or hot as the oven in this kitchen collection',
+        image: 'https://picsum.photos/200/300',
+        products: products
+    },
+    {
+        id: '2',
+        name: 'Bathroom',
+        description: 'Water is deep out here in this bathroom collection',
+        image: 'https://picsum.photos/200/300',
+        products: products
+    },
+    {
+        id: '3',
+        name: 'Living room',
+        description: 'Netflix and chill optimized furniture in this living room collection',
+        image: 'https://picsum.photos/200/300',
+        products: products
+    }
+]

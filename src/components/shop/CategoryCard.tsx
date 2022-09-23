@@ -1,4 +1,5 @@
-import { Card, CardContent, Grid, Typography } from "@mui/material"
+import { Margin } from "@mui/icons-material"
+import { Card, CardContent, CardHeader, Grid, Typography } from "@mui/material"
 import Category from "../../models/Category"
 import ProductCard from "./ProductCard"
 
@@ -15,22 +16,22 @@ const CategoryCard = (params: CategoryCardProps) => {
                 width: "100%",
                 justifyContent: "center",
                 alignItems: "center",
-                backgroundImage: `url(${params.category.image})`,
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
-                border: "1px solid black"
+                marginTop: 2,
             }}
             onClick={() => {
                 params.onClick(params.category)
             }}
         >
+            <CardHeader
+                title={params.category.name}
+                subheader={params.category.description}
+                sx={{
+                    height: "100%",
+                    width: "100%",
+                    justifyContent: "center",
+                    alignItems: "center",
+                }}/>
             <CardContent sx={{ flexGrow: 1, textAlign: 'center' }}>
-                <Typography gutterBottom variant="h5" component="h2">
-                    {params.category.name}
-                </Typography>
-                <Typography>
-                    {params.category.description}
-                </Typography>
                 <Grid container sx={{
                     flexWrap: "wrap",
                     width: "100%",

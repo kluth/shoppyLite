@@ -9,13 +9,17 @@ import {
 import Authentication from "../auth/Authentication"
 import ShoppingCart from "../shop/ShoppingCart"
 import Title from "./Title"
+import React from "react"
+import MenuDrawer from "./MenuDrawer"
 
 type ToolbarProps = {
     children?: React.ReactNode
 }
 
 const Toolbar = (params: ToolbarProps) => {
+    const [openDrawer, setOpenDrawer] = React.useState(false)
     return (
+        <>
         <MuiToolbar>
             <IconButton
                 size="large"
@@ -23,6 +27,7 @@ const Toolbar = (params: ToolbarProps) => {
                 color="inherit"
                 aria-label="menu"
                 sx={{ mr: 2 }}
+                onClick={() => setOpenDrawer(!openDrawer)}
             >
                 <MenuIcon />
             </IconButton>
@@ -33,6 +38,11 @@ const Toolbar = (params: ToolbarProps) => {
             <ShoppingCart />
             <Authentication />
         </MuiToolbar>
+        <MenuDrawer
+            open={openDrawer}
+            onClose={() => setOpenDrawer(false)}
+        />
+        </>
     )
 }
 
