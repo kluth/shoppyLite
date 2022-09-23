@@ -1,4 +1,4 @@
-import { Box, Container } from "@mui/material"
+import { Box, Container, Typography } from "@mui/material"
 import Carousel from "react-material-ui-carousel"
 import Product from "../../models/Product"
 import ProductCard from "./ProductCard"
@@ -17,12 +17,20 @@ const Hero = (params: HeroProps) => {
                 alignItems: "center",
             }}
         >
-            <Box sx={{ flexGrow: 1, justifyItems: 'center' }}>
+            <Box sx={{
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+            }}>
+                {params.products && (
                 <Carousel
                     autoPlay={true}
                     animation="slide"
                     indicators={true}
-                    navButtonsAlwaysVisible={true}
+                    navButtonsAlwaysVisible={false}
                     navButtonsProps={{
                         style: {
                             backgroundColor: '#ffffff',
@@ -34,12 +42,32 @@ const Hero = (params: HeroProps) => {
                     duration={1500}
                     cycleNavigation={true}
                     stopAutoPlayOnHover={true}
-                    swipe={true}
+                        swipe={true}
+                        sx={{
+                            width: "100%",
+                            height: "100%",
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center",
+                            alignItems: "center",
+                        }}
                 >
                 {params.products && params.products.map((product, index) => (
-                    <ProductCard product={product} />
+                    <ProductCard product={product} key={index} />
                 ))}
                 </Carousel>
+                )}
+                {!params.products && (
+                    <Typography variant="h1" color="text.primary" sx={{
+                        width: "100%",
+                        height: "100%",
+                        textAlign: "center",
+                        fontFamily: "serif",
+                        background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
+                    }}>
+                        Welcome aboard!
+                    </Typography>
+                )}
             </Box>
         </Container>
     )

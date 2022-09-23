@@ -11,5 +11,3 @@ const Template: ComponentStory<typeof Layout> = (args) => <Layout {...args} />
 export const Default = Template.bind({})
 Default.args = {
 }
-
-export const WithProductsInHero = Template.bind({})

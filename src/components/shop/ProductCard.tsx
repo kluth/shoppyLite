@@ -1,13 +1,17 @@
-import { Card, CardActionArea, CardMedia, CardContent, Typography, CardActions, Button } from "@mui/material"
+import { Card, CardActionArea, CardMedia, CardContent, Typography, CardActions, Button, IconButton, TextField } from "@mui/material"
 import Product from "../../models/Product"
+import {
+    AddShoppingCart as AddShoppingCartIcon,
+} from "@mui/icons-material"
 
 type ProductCardProps = {
-    product: Product
+    product: Product,
+    sx?: any
 }
 
 const ProductCard = (params: ProductCardProps) => {
     return (
-        <Card>
+        <Card sx={{width: 0.75, ...params.sx}}>
             <CardActionArea>
                 <CardMedia
                     component="img"
@@ -32,12 +36,25 @@ const ProductCard = (params: ProductCardProps) => {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button size="small" color="primary">
-                    Share
-                </Button>
-                <Button size="small" color="primary">
-                    Learn More
-                </Button>
+                <TextField
+                    id="quantity"
+                    label="Quantity"
+                    type="number"
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                    variant="standard"
+                    defaultValue={1}
+                    sx={{
+                        width: 100,
+                    }}
+                />
+                <IconButton
+                    aria-label="add to cart"
+                    color="primary"
+                >
+                    <AddShoppingCartIcon />
+                </IconButton>
             </CardActions>
         </Card>
     )
