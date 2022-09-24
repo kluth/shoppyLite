@@ -16,6 +16,7 @@ Default.args = {
         name: "Category 1",
         description: "Description 1",
         image: "https://source.unsplash.com/random",
-        products: products
+        products: products,
+        slug: "category-1"
     }
 }

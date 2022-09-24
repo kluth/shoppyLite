@@ -5,5 +5,13 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
-  },
+  }
 }
+
+export const decorators = []
+
+export const loaders = [
+  async () => ({
+    store: await import('../src/app/store'),
+  })
+]

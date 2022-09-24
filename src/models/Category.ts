@@ -5,7 +5,8 @@ type Category = {
     name: string
     description?: string
     image?: string
-    products?: Product[]
+    products?: Product[],
+    slug: string
 }
 
 export default Category

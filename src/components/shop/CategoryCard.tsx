@@ -1,5 +1,4 @@
-import { Margin } from "@mui/icons-material"
-import { Card, CardContent, CardHeader, Grid, Typography } from "@mui/material"
+import { Card, CardContent, CardHeader, Grid } from "@mui/material"
 import Category from "../../models/Category"
 import ProductCard from "./ProductCard"
 

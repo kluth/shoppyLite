@@ -2,6 +2,11 @@ import { ExpandLess, ExpandMore } from "@mui/icons-material"
 import { Drawer, Box, Typography, List, ListItem, Collapse } from "@mui/material"
 import React from "react"
 import { categories } from "../../example/data"
+import {
+    Link,
+    Router,
+    useNavigate,
+} from "react-router-dom"
 
 type MenuDrawerProps = {
     open: boolean
@@ -46,10 +51,12 @@ const MenuDrawer = (params: MenuDrawerProps) => {
                     </ListItem>
                     <Collapse in={openCategories} timeout="auto" unmountOnExit>
                         <List component="div" disablePadding>
-                        {categories.map((category, index) => (
+                            {categories.map((category, index) => (
+                            <Link to={`/categories/${category.slug}`} key={index}>
                             <ListItem key={index}>
                                 <Typography variant="h6">{category.name}</Typography>
-                            </ListItem>
+                                    </ListItem>
+                                </Link>
                         ))}
                         </List>
                     </Collapse>
@@ -58,7 +65,7 @@ const MenuDrawer = (params: MenuDrawerProps) => {
                     </ListItem>
                     </List>
             </Box>
-        </Drawer>
+            </Drawer>
     )
 }
 
