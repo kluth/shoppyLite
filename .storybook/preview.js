@@ -1,3 +1,9 @@
+import { Provider } from "react-redux";
+import store from '../src/app/store';
+import {
+  addDecorator
+} from '@storybook/react';
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
@@ -5,13 +11,8 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
-  }
+  },
+  addDecorator: (story) => (
+    <Provider store={store} />
+  ),
 }
-
-export const decorators = []
-
-export const loaders = [
-  async () => ({
-    store: await import('../src/app/store'),
-  })
-]
