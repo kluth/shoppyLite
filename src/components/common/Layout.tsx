@@ -1,6 +1,5 @@
 import { Container } from '@mui/material'
 import { Route, Routes } from 'react-router-dom'
-import { useGetCategoriesQuery } from '../../app/api'
 import Category from '../../models/Category'
 import Categories from '../shop/Categories'
 import CategoryPage from '../shop/Category'
@@ -8,17 +7,15 @@ import CategoryCard from '../shop/CategoryCard'
 import Hero from '../shop/Hero'
 import AppBar from './AppBar'
 import Toolbar from './Toolbar'
+import {
+    categories as data
+} from '../../example/data'
 
 type LayoutProps = {
     children?: React.ReactNode
 }
 
 const Layout = (params: LayoutProps) => {
-    const {
-        data,
-        error,
-        isLoading
-    } = useGetCategoriesQuery()
     return (
         <>
             <AppBar>

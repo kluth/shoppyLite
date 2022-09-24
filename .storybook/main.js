@@ -9,7 +9,6 @@ module.exports = {
     "@storybook/addon-interactions",
     "@storybook/preset-create-react-app",
     "storybook-addon-react-router-v6",
-    "addon-redux"
   ],
   "framework": "@storybook/react",
   "core": {
