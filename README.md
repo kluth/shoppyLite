@@ -26,6 +26,12 @@ yarn start
 yarn test
 ```
 
+## Watch storybook
+
+```sh
+yarn storybook
+```
+
 ## Author
 
 👤 **Matthias Kluth**
